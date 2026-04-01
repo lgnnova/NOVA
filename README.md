@@ -1,5 +1,5 @@
 # NOVA
-NOVA is a new - phyton, c++ and javascript like programming languague EST. 2026
+NOVA is a new - phyton, c++ and javascript like programming languague, made and compiled using node.js EST. 2026
 -----------------------------------------
 # How 2 Use
 First thing you have to do, is basicaly downloading the nova.exe file.
