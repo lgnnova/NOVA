@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>NOVA Documentation</title>
+<style>
+body { background:#1a1a1a; color:#00ff88; font-family:Consolas, monospace; margin:0; padding:20px }
+h1,h2,h3 { color:#00ffaa; text-shadow:0 0 4px #00ff88 }
+pre { background:#0d0d0d; padding:12px; border:1px solid #333; border-radius:4px; color:#7fffcc; overflow-x:auto }
+.bar { height:4px; background:linear-gradient(90deg,#00ff88,#008844); margin:10px 0 20px 0 }
+</style>
+</head>
+<body>
+
+<h1>NOVA Language Documentation</h1>
+<div class="bar"></div>
+
+<h2>1. Overview</h2>
+<p>NOVA is a simple, readable, custom programming language designed for clarity and ease of use.</p>
+
+<h2>2. Variables</h2>
+<p>Variables in NOVA are created and assigned in two steps.</p>
+
+<h3>2.1. define</h3>
+<p>Creates a variable with no value (null).</p>
+<pre>define hp
+define name
+define score</pre>
+
+<h3>2.2. set</h3>
+<p>Assigns a value to an already defined variable.</p>
+<pre>set hp = 30
+set name = "Xylen"
+set score = 100</pre>
+
+<h3>2.3. Text values</h3>
+<p>Text must always be wrapped in quotation marks.</p>
+<pre>
+set name = "Xylen"
+set sound = "meow"
+</pre>
+
+<p>If quotes are missing, NOVA treats the text as a variable name and throws an error.</p>
+<pre>
+set name = meow
+[ERROR] meow is not defined
+</pre>
+
+<h3>2.4. Showing values</h3>
+<p>To display a variable, use <code>show value</code>.</p>
+<pre>
+define hp
+set hp = 30
+
+show value hp
+</pre>
+
+<h2>3. Output</h2>
+
+<h3>3.1. Text output</h3>
+<pre>show "Hello"</pre>
+
+<h3>3.2. Variable output</h3>
+<pre>show value hp</pre>
+
+<h2>4. Conditions</h2>
+<pre>
+define hp
+set hp = 30
+
+when hp > 10
+    show "OK"
+otherwise
+    show "LOW"
+end
+</pre>
+
+<h2>5. Loops</h2>
+
+<h3>5.1. Repeat</h3>
+<pre>
+repeat 3 times
+    show "attack!"
+end
+</pre>
+
+<h3>5.2. Iterate</h3>
+<pre>
+over x in ["A","B","C"]
+    show value x
+end
+</pre>
+
+<h2>6. Functions</h2>
+<pre>
+do heal(target, amount) -> number
+    return target.hp + amount
+end
+</pre>
+
+<h2>7. Structures</h2>
+<pre>
+shape Player
+    name: text
+    hp: number
+    alive: flag = yes
+end
+</pre>
+
+<h2>8. Example Program</h2>
+<pre>
+define hp
+define name
+
+set hp = 30
+set name = "Xylen"
+
+show value hp
+show value name
+
+repeat 3 times
+    show "attack!"
+end
+</pre>
+
+<h2>9. Summary: define, set, show value</h2>
+<pre>
+define hp        ; creates variable
+set hp = 30      ; assigns value
+show value hp    ; prints value
+</pre>
+
+<h2>10. Compiling nova.js to nova.exe</h2>
+
+<h3>10.1. Install pkg</h3>
+<pre>npm install -g pkg</pre>
+
+<h3>10.2. Compile</h3>
+<pre>pkg nova.js --targets node18-win-x64 --output nova.exe</pre>
+
+<h3>10.3. Run a .nova file</h3>
+<pre>nova.exe program.nova</pre>
+
+<h3>10.4. Start REPL</h3>
+<pre>nova.exe</pre>
+
+</body>
+</html>
